@@ -38,36 +38,36 @@ knitr::kable(dfRes)
 ### Use `margins::margins` to reproduce M1-M3
 ```{r}
 # M1: Delta (model) 
-dfGe_model <-
+lGe_model <-
   margins::margins(
     model = lGlmFit,
     variables = "vTrt",
     vcov = vcov(lGlmFit)
   )
-lGe_model <- summary(object = dfGe_model)
-tidyRes(lGe_model$AME, lGe_model$SE)
+dfGe_model <- summary(object = lGe_model)
+tidyRes(dfGe_model$AME, dfGe_model$SE)
 dfRes[1,]
 
 # M2: Delta (HC2) 
-dfGe_HC2 <-
+lGe_HC2 <-
   margins::margins(
     model = lGlmFit,
     variables = "vTrt",
     vcov = vcovHC(lGlmFit,type = "HC2")
   )
-lGe_HC2 <- summary(object = dfGe_HC2)
-tidyRes(lGe_HC2$AME, lGe_HC2$SE)
+dfGe_HC2 <- summary(object = lGe_HC2)
+tidyRes(dfGe_HC2$AME, dfGe_HC2$SE)
 dfRes[2,]
 
 # M3: Delta (HC3) 
-dfGe_HC3 <-
+lGe_HC3 <-
   margins::margins(
     model = lGlmFit,
     variables = "vTrt",
     vcov = vcovHC(lGlmFit,type = "HC3")
   )
-lGe_HC3 <- summary(object = dfGe_HC3)
-tidyRes(lGe_HC3$AME, lGe_HC3$SE)
+dfGe_HC3 <- summary(object = lGe_HC3)
+tidyRes(dfGe_HC3$AME, dfGe_HC3$SE)
 dfRes[3,]
 ```
 
@@ -75,27 +75,27 @@ dfRes[3,]
 ```{r}
 #M6: Proposed (HC2)
 library(margins)
-dfGe_HC2 <-
+lGe_HC2 <-
   margins::margins(
     model = lGlmFit,
     variables = "vTrt",
     vcov = vcovHC(lGlmFit,type = "HC2")
   )
-lGe_HC2 <- summary(object = dfGe_HC2)
-se_HC2 <- sqrt(lGe_HC2$SE^2 + var(dfGe_HC2$dydx_vTrt1)/nrow(dfDat))
-tidyRes(lGe_HC2$AME, se_HC2)
+dfGe_HC2 <- summary(object = lGe_HC2)
+se_HC2 <- sqrt(dfGe_HC2$SE^2 + var(lGe_HC2$dydx_vTrt1)/nrow(dfDat))
+tidyRes(dfGe_HC2$AME, se_HC2)
 dfRes[6,]
 
 # M7: Proposed (HC3) 
-dfGe_HC3 <-
+lGe_HC3 <-
   margins::margins(
     model = lGlmFit,
     variables = "vTrt",
     vcov = vcovHC(lGlmFit,type = "HC3")
   )
-lGe_HC3 <- summary(object = dfGe_HC3)
-se_HC3 <- sqrt(lGe_HC3$SE^2 + var(dfGe_HC3$dydx_vTrt1)/nrow(dfDat))
-tidyRes(lGe_HC3$AME, se_HC3)
+dfGe_HC3 <- summary(object = lGe_HC3)
+se_HC3 <- sqrt(dfGe_HC3$SE^2 + var(lGe_HC3$dydx_vTrt1)/nrow(dfDat))
+tidyRes(dfGe_HC2$AME, se_HC3)
 dfRes[7,]
 ```
 

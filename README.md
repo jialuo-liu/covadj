@@ -5,12 +5,6 @@ date: "`r Sys.Date()`"
 output: rmarkdown::github_document
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
 
 ```{r message=FALSE, warning=FALSE}
 rm(list = ls(all=T))

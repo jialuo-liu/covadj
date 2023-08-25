@@ -35,7 +35,7 @@ knitr::kable(dfRes)
 ```
 
 
-### Use `margins` to reproduce M1-M3
+### Use `margins::margins` to reproduce M1-M3
 ```{r}
 # M1: Delta (model) 
 dfGe_model <-
@@ -71,9 +71,10 @@ tidyRes(lGe_HC3$AME, lGe_HC3$SE)
 dfRes[3,]
 ```
 
-### Use `margins` to reproduce M6-M7
+### Use `margins::margins` to reproduce M6-M7
 ```{r}
 #M6: Proposed (HC2)
+library(margins)
 dfGe_HC2 <-
   margins::margins(
     model = lGlmFit,
@@ -98,9 +99,10 @@ tidyRes(lGe_HC3$AME, se_HC3)
 dfRes[7,]
 ```
 
-### use `stdGlm` to for to reproduce M4
+### use `stdReg::stdGlm` to for to reproduce M4
 
 ```{r}
+library(stdReg)
 lstdLogit <- stdReg::stdGlm(fit= lGlmFit, data=dfDat, X="vTrt")
 lSummary <- summary(lstdLogit, contrast = "difference",
                     reference = "0", CI.level = 0.95)

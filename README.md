@@ -1,10 +1,4 @@
----
-title: "Comparison to existing packages"
-author: "Jialuo Liu"
-date: "`r Sys.Date()`"
-output: rmarkdown::github_document
----
-
+## Comparison to existing packages
 
 ```{r message=FALSE, warning=FALSE}
 rm(list = ls(all=T))

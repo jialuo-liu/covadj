@@ -3,10 +3,6 @@ title: "Comparison to existing packages"
 author: "Jialuo Liu"
 date: "`r Sys.Date()`"
 output: rmarkdown::github_document
-vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}

@@ -86,7 +86,7 @@ dfRes[3,]
 
 ### Use `margins::margins` to reproduce M6-M7
 ```{r}
-#M6: Proposed (HC2)
+# M6: Proposed (HC2)
 library(margins)
 lGe_HC2 <-
   margins::margins(
@@ -120,7 +120,7 @@ dfRes[7,]
 #> 7 -0.07165622 0.07582244 -0.2202655 0.07695303      RD Gcomp_Imp_HC3
 ```
 
-### use `stdReg::stdGlm` to for to reproduce M4
+### use `stdReg::stdGlm` to reproduce M4
 
 ```{r}
 library(stdReg)

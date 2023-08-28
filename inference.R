@@ -173,7 +173,7 @@ EIFInf <- function( dP1Est, dP0Est, vEIF1, vEIF0,
 ########################################################################## .
 
 ########################################################################## .
-# ----  A wrapper of function of robincar_glm ----
+# ----  A wrapper of the function robincar_glm ----
 #'@param cFormula an object of class "formula" in the form `Y~trt+covariates`
 #'@param dfDat a data frame containing the variables in the model. 
 #'@param dConfLevel numeric, confidence level
@@ -226,6 +226,7 @@ GcompInf <- function( dP1Est, dP0Est, vD1, vD0, mCov,
 }
 ########################################################################## .
 
+########################################################################## .
 # ---- Description: G Computation ----
 # variance computed using Delta
 #'@param dfDat a data frame containing the variables in the model. 

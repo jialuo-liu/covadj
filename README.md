@@ -126,7 +126,7 @@ dfRes[7,]
 library(stdReg)
 lstdLogit <- stdReg::stdGlm(fit= lGlmFit, data=dfDat, X="vTrt")
 lSummary <- summary(lstdLogit, contrast = "difference",
-                    reference = "0", CI.level = 0.95)
+                    reference = 0, CI.level = 0.95)
 tidyRes(lSummary$est.table[2,1],lSummary$est.table[2,2])
 #>      estimate     stderr      lower     upper measure
 #> 1 -0.07165622 0.06254651 -0.1942451 0.0509327      RD

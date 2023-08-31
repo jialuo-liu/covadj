@@ -4,7 +4,6 @@
 #remotes::install_github("tye27/RobinCar")
 library(RobinCar)     # Semi-parametric approach
 library(sandwich)     # robust sandwich 
-library(future.apply) # parallel computing
 expit <- function(x) exp(x)/(1+exp(x))
 # ------------------------------------------------------------------------.
 

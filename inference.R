@@ -98,7 +98,7 @@ GetCovariance <- function( lGlmFit, strCovType = NULL){
 ########################################################################## .
 GlmFit <- function(cFormula, dfDat ){
   
-  nP <- length(all.vars(cFormula))-1
+  nP <- length( attr(terms(cFormula),"term.labels") )
   bWarn <- FALSE
   while( nP >= 1){
     withCallingHandlers(lGlmFit <- glm(cFormula,family=binomial(link='logit'),
@@ -262,14 +262,14 @@ GcompFit <- function( dfDat,
   
   nTrtInd <- 2
   nN <- nrow(mX)
-  # ---- G computation ----
-  mX1 <- mX0 <- mX
-  mX1[,nTrtInd] <- 1
-  mX0[,nTrtInd] <- 0
   
+  # ---- G computation ----
   dfDat0 <- dfDat1 <- dfDat
-  dfDat1[, all.vars(cFormula)[2]] <- as.factor(1)
-  dfDat0[, all.vars(cFormula)[2]] <- as.factor(0)
+  dfDat1[, all.vars(cFormula)[2]] <- factor(1, levels = c("0","1"))
+  dfDat0[, all.vars(cFormula)[2]] <- factor(0, levels = c("0","1"))
+
+  mX1 <- model.matrix( cFormula, data = dfDat1)
+  mX0 <- model.matrix( cFormula, data = dfDat0)
   
   vY1Pred <- predict(lGlmFit, newdata = dfDat1,type = "response")
   vY0Pred <- predict(lGlmFit, newdata = dfDat0,type = "response")

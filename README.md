@@ -146,7 +146,7 @@ lRobin <- RobinCar::robincar_glm(
   adj_method = "homogeneous",
   vcovHC = "HC3",
   g_family = stats::binomial,
-  formula = vY ~ vTrt + vCont + vCat,
+  formula = lGlmFit$formula,
   contrast_h = "diff"
 )
 tidyRes(lRobin$contrast$result$estimate, lRobin$contrast$result$se)
